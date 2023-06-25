@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism-okaidia.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    
+    <!-- Favicons -->
+    
+    <title>Документация Frontend</title>
+</head>
+<body class="">
+</code></pre>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="header__wrapper-info">
+                    <h1>Документация/Руководство</h1>
+                </div>
+                <div class="header__wrapper-logo">
+                    <img src="./assets/images/svg/logo.svg" alt="logo">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="page" class="page">
+    
+        
+        <main class="documentation">
+            <div class="container">
+                <div class="documentation__item">
+                    <h2>Общие правила написание кода</h2>
+                    <ul>
+                        <li>Переменные функции, методов, данных объявляются в формате camelCase</li>
+                        <li>Название всех перемен пишутся на английском языке без грамматических ошибок и должны чётко отражать смысл сущности</li>
+                        <li>Табуляцыя: 4-х пробельная</li>
+                        <li>Используется БЭМ-методологий в разработки вёрстки</li>
+                        <li>Используется эластичная вёрстка, все значение в px должны быть сконвертированны в vw (за это отвечает scss функция px2vw)</li>
+                    </ul>
+                </div>
+                <div class="documentation__item">
+                    <h2>Работа с комопонентами Vue</h2>
+                    <p>
+                        Компоненты импортируются через стрелочную функцию в ключевом объекте <strong>components</strong>. 
+                        Глобальные <strong>UI компоненты</strong> из директории <strong>/ui</strong> не нуждаются в импортировании, они импортируются по умолчанию
+                    </p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> такая запись является компактной и содержательной, позволяет не разбрасываться лишним кодом по файлу компоненты
+                        </p>
+                    </div>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Рекомендация:</strong> старайтесь разделять пустой строкой импорты компонент групируя их, это обеспечивает лучшую читабильность.
+                        </p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="10" id="codeComponentImports" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Vuex | работа с хранилищем (store)</h2>
+                    <p>
+                        При разработки хранилище должны использоваться все этапы <strong>getters, mutations, actions</strong> 
+                        так как это показано в схеме, все запросы к <strong>Backend-API</strong>, определяются только в <strong>action функциях</strong> хранилище
+                    </p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> правильный паттерн построение архитектуры, придерживается правила единой ответственности, компоненты остаются чистыми и легко поддерживаются
+                        </p>
+                    </div>
+                    <a target="_blank" href="https://vuex.vuejs.org/#what-is-a-state-management-pattern">
+                        <img src="./assets/images/vuex-scheme.png" alt="vuex-scheme">
+                    </a>
+                    <h3>Работа с даннами в компонентах</h3>
+                    <p>Данные из <strong>store</strong> должны вызываться в компоненте в следуйщем формате используя spread оператор для вспомогательной функций <strong>mapGetters</strong></p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> такая запись позволяет с лёгкостью понять из какого <strong>store</strong> файла вызываются данные
+                        </p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="8" id="codeMapGetters" cols="30" disabled></textarea>
+                    <p><strong>Action</strong> функция должна вызываться напрямую из контекста компоненты</p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> это позволяет с лёгкостью отличить <strong>action</strong> функцию от обычного метода компоненты, ускоряет дебагинг
+                        </p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="1" id="codeMapAction" disabled></textarea>
+                    <p><strong>Mutation</strong> функции объявляются в формате <strong>uppercase</strong> и разделяются нижним подчёркиванием, используются только внутри файлов <strong>store</strong>!</p>
+                    <textarea class="documentation__item-code" rows="3" id="codeStoreMutation" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Работа с SVG</h2>
+                    <p>Добавление новых иконок в проект осуществляется только через <strong>sprite.svg</strong></p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> использование спрайтов SVG предоставляет более гибкое и эффективное управление графическими элементами, облегчая их разработку, сопровождение и оптимизацию.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+        <footer class="footer">
+        
+        </footer>
+    </div>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
