@@ -5,9 +5,12 @@ html {
 body {
   font-weight: 400;
   font-size: 20px;
-  min-width: 320px;
+  min-width: 1440px;
   overflow: auto;
   font-family: "Montserrat", sans-serif;
+  background: linear-gradient(-45deg, #ffffff, #edf3ff);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
 }
 
 .m-open {
@@ -63,13 +66,15 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 143%;
 }
 
 h4 {
-  font-size: 1.4em;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 143%;
 }
 
 button {
@@ -97,6 +102,17 @@ input:focus, textarea:focus, button:focus {
   outline: none;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .container {
   max-width: 1440px;
   padding: 0 15px;
@@ -152,7 +168,7 @@ input:focus, textarea:focus, button:focus {
 }
 
 .documentation {
-  padding: 200px 0 0 0;
+  padding: 200px 0 60px 0;
 }
 .documentation h2, .documentation h3, .documentation h4 {
   margin-bottom: 24px;
@@ -160,8 +176,27 @@ input:focus, textarea:focus, button:focus {
 .documentation__item {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
-.documentation a {
+.documentation__item::after {
+  content: initial;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(-45deg, #0E29BB, #07145E);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+.documentation__item:not(:last-child) {
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+}
+.documentation__item:not(:last-child)::after {
+  content: "";
+}
+.documentation__item > a {
   display: flex;
   width: fit-content;
   font-size: 16px;
@@ -169,41 +204,40 @@ input:focus, textarea:focus, button:focus {
   line-height: 143%;
   color: #0E29BB;
 }
-.documentation a:hover img {
+.documentation__item > a:hover img {
   transform: scale(1.01);
-  box-shadow: 0px 0px 20px 0 rgba(14, 41, 187, 0.5);
 }
-.documentation a:active img {
+.documentation__item > a:active img {
   transform: scale(0.99);
 }
-.documentation img {
+.documentation__item img {
   width: fit-content;
   height: auto;
   margin-bottom: 24px;
   border-radius: 15px;
   transition: 0.2s ease;
 }
-.documentation p {
+.documentation__item p {
   font-size: 16px;
   font-weight: 500;
   line-height: 143%;
   max-width: 800px;
   margin-bottom: 24px;
 }
-.documentation ul {
+.documentation__item > ul {
   display: flex;
   flex-direction: column;
 }
-.documentation ul li {
-  display: flex;
+.documentation__item > ul li {
+  display: inline-flex;
   font-size: 16px;
   font-weight: 500;
   line-height: 143%;
 }
-.documentation ul li:not(:last-child) {
+.documentation__item > ul li:not(:last-child) {
   margin-bottom: 12px;
 }
-.documentation ul li::before {
+.documentation__item > ul li::before {
   content: "";
   min-width: 10px;
   height: 10px;
@@ -212,4 +246,35 @@ input:focus, textarea:focus, button:focus {
   box-sizing: border-box;
   border-radius: 50%;
   border: 3px solid #0E29BB;
+}
+.documentation__item-code {
+  padding: 20px 30px;
+  margin-bottom: 24px;
+  max-width: 1100px;
+  border-radius: 5px;
+  background-color: #212121;
+  color: white;
+  height: fit-content;
+  resize: none;
+  min-height: initial;
+  font-size: 16px;
+  line-height: 143%;
+  font-family: "Consolas";
+}
+.documentation__item-attention {
+  display: flex;
+  margin-bottom: 24px;
+  max-width: 1100px;
+}
+.documentation__item-attention p {
+  margin-bottom: 0;
+  max-width: none;
+}
+.documentation__item-attention img {
+  min-width: 24px;
+  height: 24px;
+  margin: 0 12px 0 5px;
+  box-shadow: 0px 0px 0px 5px #D8E5FF;
+  border-radius: 50%;
+  margin-bottom: 0;
 }
