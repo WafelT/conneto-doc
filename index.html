@@ -35,15 +35,24 @@
                 <div class="header__wrapper-info">
                     <h1>Документация/Руководство</h1>
                 </div>
-                <div class="header__wrapper-logo">
+                <a href="/" class="header__wrapper-logo">
                     <img src="./assets/images/svg/logo.svg" alt="logo">
-                </div>
+                </a>
             </div>
         </div>
     </header>
     <div id="page" class="page">
     
         
+        <section class="navbar">
+            <div class="container">
+                <div class="navbar__list">
+                    <a href="/code-patterns.html" class="navbar__list-link">
+                        <span>Паттерны написание кода</span>
+                    </a>
+                </div>
+            </div>
+        </section>
         <main class="documentation">
             <div class="container">
                 <div class="documentation__item">
@@ -91,25 +100,6 @@
                     <a target="_blank" href="https://vuex.vuejs.org/#what-is-a-state-management-pattern">
                         <img src="./assets/images/vuex-scheme.png" alt="vuex-scheme">
                     </a>
-                    <h3>Работа с даннами в компонентах</h3>
-                    <p>Данные из <strong>store</strong> должны вызываться в компоненте в следуйщем формате используя spread оператор для вспомогательной функций <strong>mapGetters</strong></p>
-                    <div class="documentation__item-attention">
-                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
-                        <p>
-                            <strong>Преимущество:</strong> такая запись позволяет с лёгкостью понять из какого <strong>store</strong> файла вызываются данные
-                        </p>
-                    </div>
-                    <textarea class="documentation__item-code" rows="8" id="codeMapGetters" cols="30" disabled></textarea>
-                    <p><strong>Action</strong> функция должна вызываться напрямую из контекста компоненты</p>
-                    <div class="documentation__item-attention">
-                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
-                        <p>
-                            <strong>Преимущество:</strong> это позволяет с лёгкостью отличить <strong>action</strong> функцию от обычного метода компоненты, ускоряет дебагинг
-                        </p>
-                    </div>
-                    <textarea class="documentation__item-code" rows="1" id="codeMapAction" disabled></textarea>
-                    <p><strong>Mutation</strong> функции объявляются в формате <strong>uppercase</strong> и разделяются нижним подчёркиванием, используются только внутри файлов <strong>store</strong>!</p>
-                    <textarea class="documentation__item-code" rows="3" id="codeStoreMutation" disabled></textarea>
                 </div>
                 <div class="documentation__item">
                     <h2>Работа с SVG</h2>
@@ -147,6 +137,6 @@
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

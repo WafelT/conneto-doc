@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism-okaidia.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    
+    <!-- Favicons -->
+    
+    <title>Паттерны написание кода</title>
+</head>
+<body class="">
+</code></pre>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="header__wrapper-info">
+                    <h1>Документация/Руководство</h1>
+                </div>
+                <a href="/" class="header__wrapper-logo">
+                    <img src="./assets/images/svg/logo.svg" alt="logo">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="page" class="page">
+    
+        
+        <section class="navbar">
+            <div class="container">
+                <div class="navbar__list">
+                    <a href="/" class="navbar__list-back">
+                        <svg><use xlink:href="assets/images/svg/sprite.svg#arrowLeft"></use></svg>
+                        <span>Назад</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <main class="documentation">
+            <div class="container">
+                <div class="documentation__item">
+                    <h2>Паттерны написание кода</h2>
+                    <p>
+                        Данная страница преднозначена для демонстрации выбраных и используемых в проекте часто повторяющихся участков кода с целью <strong>стандартизации</strong> 
+                        и сохранение <strong>единого почерка написание кода</strong>.
+                    </p>
+                    <p>В результате ожидается повышеная предсказуемость и пониженое время на разберательство в разработанном функционале.</p>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление icons</h2>
+                    <p>
+                        Для точной стилизации иконки в зависимости от её состояние используется класс <strong>.i-background</strong> он имеет модифиакционный классы <strong>--fill, --stroke</strong> 
+                        используемые для ориентирование в <strong>CSS</strong> стилизации, они применяются только на динамические тэги иконки, также могут применятся вместе.
+                    </p>
+                    <textarea class="documentation__item-code" rows="12" id="codeIconsTemplate" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление end-point-а</h2>
+                    <p>
+                        <strong>End-point</strong>-ы обьявляется через ключь <strong>$axios</strong> из контекста <strong>nuxt</strong>-а необходимо указать первый аргумент 
+                        в качестве обьекта со всеми необходимами параметарами.
+                    </p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p><strong>End-point</strong>-ы обьявляются только в <strong>action</strong> функциях в <strong>store</strong> файлах</p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="6" id="codeEndPointTemplate" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление props</h2>
+                    <p>Для обьявление <strong>props</strong> в проекте используется плагин <strong>VueTypes</strong> он позволяет прописать <strong>props</strong>-у необходимые данные, при этом умещая их в одну строчку</p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p><strong>Преимущество:</strong> Компактность</p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="7" id="codePropsTemplate" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление getters</h2>
+                    <p>Данные из <strong>store</strong> должны вызываться в компоненте в следуйщем формате используя spread оператор для вспомогательной функций <strong>mapGetters</strong></p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> такая запись позволяет с лёгкостью понять из какого <strong>store</strong> файла вызываются данные
+                        </p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="8" id="codeMapGetters" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление action</h2>
+                    <p><strong>Action</strong> функция должна вызываться напрямую из контекста компоненты</p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>
+                            <strong>Преимущество:</strong> это позволяет с лёгкостью отличить <strong>action</strong> функцию от обычного метода компоненты, ускоряет дебагинг
+                        </p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="1" id="codeMapAction" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление mutations</h2>
+                    <p><strong>Mutation</strong> функции объявляются в формате <strong>uppercase</strong> и разделяются нижним подчёркиванием, используются только внутри файлов <strong>store</strong>!</p>
+                    <textarea class="documentation__item-code" rows="3" id="codeStoreMutation" disabled></textarea>
+                </div>
+                <div class="documentation__item">
+                    <h2>Шаблон обьявление стилей CSS</h2>
+                    <p><strong>CSS</strong> стили обьявляются в <strong>.scss</strong> файлах, в файлах компоненты обьявляются в случий крайней необходимости</p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p>Данное решение поддерживает порядок в проекте и исключает конфликт приоритетности стилей</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+        <footer class="footer">
+        
+        </footer>
+    </div>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
