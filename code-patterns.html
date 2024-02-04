@@ -65,6 +65,22 @@
                     <p>В результате ожидается повышеная предсказуемость и пониженое время на разберательство в разработанном функционале.</p>
                 </div>
                 <div class="documentation__item">
+                    <h2>Шаблон обьявление Toast сообщение</h2>
+                    <p>
+                        <strong>Toast</strong> сообщение объявляется на странице использование, через компоненту <strong>MyToast</strong> ей присваивается уникальный <strong>name</strong> параметр,
+                        он передаётся в <strong>$emit</strong> через <strong>eventBus</strong> 
+                    </p>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p><strong>Исключением</strong> являются <strong>Toast</strong> сообщение используемые для отображение неудачных ответах от сервера, которые не входят в сценарии использование функционала, в этом случае можем обратиться напрямую к объекту <strong>$toast</strong></p>
+                    </div>
+                    <div class="documentation__item-attention">
+                        <img src="./assets/images/svg/attention-icon.svg" alt="attention-icon">
+                        <p><strong>Пояснения:</strong> например <strong>Toast</strong> сообщения о отсутствие прав объявляется через компоненту по скольку это продуманный сценарий, а ошибки из <strong>try/catch</strong> срабатывающий в случае не валидного ответа вызываются через объект <strong>$toast</strong></p>
+                    </div>
+                    <textarea class="documentation__item-code" rows="19" id="codeToastMessagesTemplate" cols="30" disabled></textarea>
+                </div>
+                <div class="documentation__item">
                     <h2>Шаблон обьявление icons</h2>
                     <p>
                         Для точной стилизации иконки в зависимости от её состояние используется класс <strong>.i-background</strong> он имеет модифиакционный классы <strong>--fill, --stroke</strong> 
